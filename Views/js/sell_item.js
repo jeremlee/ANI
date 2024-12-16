@@ -9,7 +9,14 @@ $(document).ready(function () {
     window.location.href = "home.html";
   }
 
-  user = JSON.parse(user);
+    user = JSON.parse(user);
+
+    let cart = sessionStorage.getItem("cart");
+    cart = cart ? JSON.parse(cart) : [];
+
+    $('#cart-count').html(cart.length);
+
+  $('#profile-picture').attr('src', user.profilePictureUrl);
 
   $("#sell-item-form").on("submit", function (e) {
     e.preventDefault();
@@ -31,7 +38,7 @@ $(document).ready(function () {
       },
     });
   });
-
+  /*
   document.getElementById("menu-toggle").addEventListener("click", function () {
     document.getElementById("mobile-menu").classList.remove("translate-x-full");
     document.getElementById("mobile-menu").classList.add("translate-x-0");
@@ -40,5 +47,5 @@ $(document).ready(function () {
   document.getElementById("menu-close").addEventListener("click", function () {
     document.getElementById("mobile-menu").classList.remove("translate-x-0");
     document.getElementById("mobile-menu").classList.add("translate-x-full");
-  });
+  });  apaan ini dawgg */
 });

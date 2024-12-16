@@ -10,7 +10,17 @@ $(document).ready(function () {
   $("#lastName").val(user.lastName);
   $("#phoneNumber").val(user.phoneNumber);
   $("#address").val(user.address);
-  $("#isFarmer").prop("checked", user.isFarmer);
+    $("#isFarmer").prop("checked", user.isFarmer);
+    $('#profile-picture').attr('src', user.profilePictureUrl);
+    $("#profile-picture").on("click", function () {
+        window.location.href = "profile.html";
+    });
+    $('#goToCart').on('click', function () {
+        window.location.href = 'checkout.html';
+    });
+    let cart = sessionStorage.getItem("cart");
+    cart = cart ? JSON.parse(cart) : [];
+    $('#cart-count').html(cart.length);
 
   $("#update-profile-form").submit(function (e) {
     e.preventDefault();
@@ -33,7 +43,7 @@ $(document).ready(function () {
       },
     });
   });
-
+  /*
   document.getElementById("menu-toggle").addEventListener("click", function () {
     document.getElementById("mobile-menu").classList.remove("translate-x-full");
     document.getElementById("mobile-menu").classList.add("translate-x-0");
@@ -42,5 +52,5 @@ $(document).ready(function () {
   document.getElementById("menu-close").addEventListener("click", function () {
     document.getElementById("mobile-menu").classList.remove("translate-x-0");
     document.getElementById("mobile-menu").classList.add("translate-x-full");
-  });
+  }); para unsa ni oy*/
 });

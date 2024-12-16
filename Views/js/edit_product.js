@@ -8,7 +8,19 @@ $(document).ready(function () {
   if (!product) window.location.href = "home.html";
 
   product = JSON.parse(product);
-  if (product.userID !== user.userID) window.location.href = "home.html";
+    if (product.userID !== user.userID) window.location.href = "home.html";
+
+    $('#profile-picture').attr('src', user.profilePictureUrl);
+    $("#profile-picture").on("click", function () {
+        window.location.href = "profile.html";
+    });
+
+    let cart = sessionStorage.getItem("cart");
+    cart = cart ? JSON.parse(cart) : [];
+    $('#cart-count').html(cart.length);
+    $('#goToCart').on('click', function () {
+        window.location.href = 'checkout.html';
+    });
 
   $("#productName").val(product.name);
   $("#description").val(product.description);

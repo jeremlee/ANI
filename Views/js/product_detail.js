@@ -17,6 +17,8 @@ $(document).ready(function () {
     window.location.href = "checkout.html";
   });
 
+  $('#profile-picture').attr('src', user.profilePictureUrl);
+
   $("#name").html(product.name);
   $("#description").html(product.description);
   $("#price").html(product.price);
@@ -245,11 +247,25 @@ $(document).ready(function () {
       preConfirm: () => window.location.reload()
     });
   });
-
+  //idk para unsa ni but na fix na ang modal
   const mobileMenuButton = document.getElementById("mobile-menu-button");
   const mobileMenu = document.getElementById("mobile-menu");
   const closeMobileMenuButton = document.getElementById("close-mobile-menu");
+    //end comment
+    const openModalButton = document.getElementById("openModalButton");
+    const closeModalButton = document.getElementById("closeModalButton");
+    const ratingModal = document.getElementById("ratingModal");
 
+    openModalButton.addEventListener("click", () => {
+        ratingModal.classList.remove("hidden");
+    });
+
+    closeModalButton.addEventListener("click", () => {
+        ratingModal.classList.add("hidden");
+    });
+
+
+    //idk para unsa ni
   mobileMenuButton.addEventListener("click", () => {
     mobileMenu.classList.toggle("hidden");
   });
@@ -257,4 +273,5 @@ $(document).ready(function () {
   closeMobileMenuButton.addEventListener("click", () => {
     mobileMenu.classList.add("hidden");
   });
+    //end comment
 });

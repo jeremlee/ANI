@@ -4,6 +4,7 @@
 
   user = JSON.parse(user);
 
+  /* para sa unsa jud diay ni oy
   document.getElementById("menu-toggle").addEventListener("click", function () {
     document.getElementById("mobile-menu").classList.remove("translate-x-full");
     document.getElementById("mobile-menu").classList.add("translate-x-0");
@@ -12,7 +13,16 @@
   document.getElementById("menu-close").addEventListener("click", function () {
     document.getElementById("mobile-menu").classList.remove("translate-x-0");
     document.getElementById("mobile-menu").classList.add("translate-x-full");
-  });
+  });*/
+
+    $('#profile-picture').attr('src', user.profilePictureUrl);
+    $("#profile-picture").on("click", function () {
+        window.location.href = "profile.html";
+    });
+    $('#goToCart').on('click', function () {
+        window.location.href = "checkout.html"
+    })
+
 
   //assume user.isFarmer
 
@@ -114,13 +124,12 @@
               total += productPrice * order.quantity;
               $("#total").html(total + " Php");
             })
-              .catch((error) => {
-                console.log("Error processing order:", error);
-              });
+          }).catch ((error) => {
+              console.log("Error update:", error);
           });
       })
-        .catch((error) => {
-          console.log("Error fetching orders:", error);
-        });
+        
+    }).catch((error) => {
+        console.log("Error fetching orders:", error);
     });
 });

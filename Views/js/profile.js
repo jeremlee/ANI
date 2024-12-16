@@ -6,9 +6,11 @@ $(document).ready(function () {
     let cart = sessionStorage.getItem("cart");
     cart = cart ? JSON.parse(cart) : [];
 
+    
+
     $('#cart-count').html(cart.length);
     $('#goToCart').on('click', function () {
-        window.location.href = 'cart.html';
+        window.location.href = 'checkout.html';
     });
 
     var userParsed = JSON.parse(user);
